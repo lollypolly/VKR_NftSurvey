@@ -1,0 +1,815 @@
+@import "./src/assets/scss/variables.scss";
+@import "./assets/scss/components/buttons.scss";
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background-color: $white;
+    box-shadow: 0 0 5px #9981DF;
+}
+::-webkit-scrollbar-thumb{
+    background: #7A59D9;
+    border-radius: 10px;
+    border: 0.5px solid black;
+    height: 20px;
+}
+//AuthLayout
+.main {
+    height: 100vh;
+    background-image: $bg-image1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0 60px;
+    overflow: hidden;
+}
+.main1 {
+    height: 100vh;
+    background-image: $bg-image4;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0 60px;
+    overflow: hidden;
+}
+
+/*Header Componenr*/
+.header {
+    padding-top: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left-side span {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: $font-weight-800;
+    font-size: 29px;
+    line-height: 153%;
+    color: $white;
+}
+
+.buttons {
+    display: flex;
+    gap: 60px;
+}
+
+.buttons button {
+    //width: 70px;
+    background-color: unset;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: $font-weight-400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.buttons button:hover {
+    font-weight: $font-weight-600;
+}
+.buttons button:focus {
+    font-weight: $font-weight-600;
+}
+.buy-token {
+    height: calc(100vh - 250px);
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.buy-token-content {
+    text-align: center;
+    width: 500px;
+}
+.buy-token-header {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: $font-weight-500;
+    font-size: 18px;
+    line-height: 16px;
+    color: #FFFFFF;
+    margin-bottom: 21px;
+}
+
+//Create Token
+.form-create-token-main{
+    width: 60%;
+    height: 100%;
+    margin-top: 120px;
+    //display: flex;
+    //flex-direction: column;
+    //justify-content: center;
+}
+.create-token-main {
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+.create-token-bg {
+    height: 100%;
+    width: 40%;
+    background-image: $bg-image2;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    //overflow: hidden;
+}
+.create-token-form {
+    width: calc(100% - 40%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $pink-light;
+    overflow: auto;
+}
+.create-token-form-header{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 41px;
+    color: rgba(0, 0, 0, 0.94);
+    margin-bottom: 40px;
+}
+.radio-buttons-group {
+    display: flex;
+    gap: 25px;
+    width: 100%;
+}
+.radio-button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.radio-button Label{
+    margin-left: 8px;
+}
+.ant-input {
+    border: 1px solid rgba(34, 34, 34, 0.24);
+    border-radius: 8px;
+    height: 48px;
+    padding: 0 12px;
+}
+:where(.css-dev-only-do-not-override-15rg2km).ant-form-item .ant-form-item-label >label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    content: "";
+}
+:where(.css-dev-only-do-not-override-15rg2km).ant-form-item .ant-form-item-label >label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.94);
+
+}
+:where(.css-dev-only-do-not-override-15rg2km).ant-input{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    color: rgba(0, 0, 0, 0.94);
+
+}
+:where(.css-dev-only-do-not-override-15rg2km).ant-form input[type='file']:focus, :where(.css-dev-only-do-not-override-15rg2km).ant-form input[type='radio']:focus, :where(.css-dev-only-do-not-override-15rg2km).ant-form input[type='checkbox']:focus {
+    box-shadow: unset;
+}
+:where(.css-dev-only-do-not-override-15rg2km).ant-form input[type="radio"], :where(.css-dev-only-do-not-override-15rg2km).ant-form input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+}
+.buttons-group {
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+}
+//Profile
+.profile-main {
+    position: relative;
+    height: 100vh;
+    background-image: $bg-image4;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0 60px;
+    overflow: hidden;
+}
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 20px;
+    position: absolute;
+    width: 548px;
+    height: 520px;
+    left: calc(50% - 548px/2);
+    top: calc(50% - 485px/2);
+    background: $white-middle;
+    box-shadow: 0 4px 16px rgba(0, 56, 43, 0.1);
+    border-radius: 16px;
+    overflow:auto;
+}
+.my-profile-header {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 41px;
+    text-align: center;
+    color: $black-opacity;
+
+}
+.my-profile-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: $blue-dark;
+}
+.experience {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.experience-left-side{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: $font-weight-400;
+    font-size: 12px;
+    line-height: 16px;
+    color: $black-opacity;
+}
+.experience-right-side{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: $font-weight-600;
+    font-size: 14px;
+    line-height: 16px;
+    color: $black-opacity;
+}
+
+//PollWithToken
+.button-container {
+    margin-bottom: 30px;
+    width: 400px;
+}
+.poll-with-token-container {
+    //display: flex;
+    //flex-direction: column;
+    //align-items: center;
+    //justify-content: center;
+    margin-top: 60px;
+    overflow: auto;
+}
+.polls-group {
+    gap: 28px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 100vh;
+}
+.poll-container {
+    display: flex;
+    //flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 30px;
+    gap: 10px;
+    width: 100%;
+    height: 80px;
+    background: #FCF4FF;
+    border-radius: 16px;
+    cursor: pointer;
+}
+.poll-container-left {
+    //width: 79px;
+    height: 24px;
+
+    /* big text bold */
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.94);
+}
+.poll-container-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 60px;
+    width: 500px;
+    height: 44px;
+}
+.blue-side {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 12px;
+    width: 400px;
+    height: 44px;
+    background: rgba(56, 52, 255, 0.48);
+    border-radius: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #FFFFFF;
+}
+.blue-side-none {
+    background: none;
+}
+.dots-group {
+    width: 40px;
+    height: 40px;
+    background-image: url("../src/assets/images/menu-vertical.png");
+    cursor: pointer;
+}
+.dot{
+    width: 7px;
+    height: 7px;
+    //font-size: 50px;
+}
+//CreatePoll
+.create-poll-container {
+    position: relative;
+    height: 100vh;
+    background-image: $bg-image4;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0 60px;
+    overflow: hidden;
+}
+.poll {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 20px;
+    //width: 100%;
+    height: 75%;
+    background: $white;
+    box-shadow: 0 4px 16px rgba(0, 56, 43, 0.1);
+    border-radius: 16px;
+    overflow:auto;
+}
+.header-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 41px;
+    color: $white;
+    margin-top: 48px;
+    margin-bottom: 27px;
+}
+.poll-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+}
+.display-none {
+    display: none;
+}
+.poll-input-header {
+    width: 100%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.94);
+}
+:where(.css-dev-only-do-not-override-15rg2km).ant-input:hover {
+    border-color: unset;
+}
+.poll-input-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(0, 0, 0, 0.94);
+}
+.poll-buttons-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+.poll-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    width: 50%;
+    height: 48px;
+    background-color: $blue-dark;
+    opacity: 0.48;
+    border-radius: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: $white;
+    border: none;
+}
+.poll-button-bold {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    width: 50%;
+    height: 48px;
+    background: $blue-dark;
+    border-radius: 8px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: $white;
+    border: none;
+}
+//FillingQuestions
+//.filling {
+//    display: flex;
+//    flex-direction: column;
+//    align-items: flex-start;
+//    padding: 24px;
+//    gap: 20px;
+//    //width: 100%;
+//    height: 75%;
+//    background: $white;
+//    box-shadow: 0 4px 16px rgba(0, 56, 43, 0.1);
+//    border-radius: 16px;
+//    overflow:auto;
+//}
+
+.filling-question-buttons-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    gap: 20px;
+}
+.question-input-header {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 41px;
+    color: rgba(0, 0, 0, 0.94);
+}
+.question-input-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;align: center;
+    color: rgba(0, 0, 0, 0.94);
+}
+.question-button-bold {
+    width: 33%;
+}
+.bacgroundbtn{
+    background-color: $white;
+}
+.counter {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.94);
+}
+/* Responsive styles */
+@media (max-width: 630px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-left-side {
+        margin-bottom: 10px;
+    }
+
+    .buttons {
+        margin-top: 10px;
+        gap: 20px
+    }
+
+    .buttons button {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+}
+
+//Index
+
+.taking-survey-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    //align-items: center;
+    //justify-content: center;
+    //background-color: grey;
+}
+.taking-survey-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 48px
+}
+.taking-survey-header-left-side {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 41px;
+    color: #FFFFFF;
+}
+.taking-survey-header-right-side {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 41px;
+    color: #FFFFFF;
+    gap: 50px;
+    width: 600px;
+}
+.text-edit {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 16px;
+    color: #FCF4FF;
+    cursor: pointer;
+}
+.surveys-answers {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 30px;
+    gap: 10px;
+    background: $white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    margin-top: 20px;
+}
+.surveys-answers-header {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.94);
+}
+.surveys-answers-body {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.94);
+}
+.surveys-answers-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+.surveys-answers-input-checked{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background-color: red;
+}
+.surveys-answers-input-notselected {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+    gap: 12px;
+    background: $white;
+    border: 1px solid rgba(34, 34, 34, 0.24);
+    border-radius: 8px;
+    width: 100%;
+
+}
+.surveys-answers-input-selected {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+    gap: 12px;
+    background: #FBE0FF;
+    border: 1px solid rgba(34, 34, 34, 0.24);
+    border-radius: 8px;
+    width: 100%;
+}
+.radio-button-answer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+    gap: 12px;
+    background: #FBE0FF;
+    border: 1px solid rgba(34, 34, 34, 0.24);
+    border-radius: 8px;
+}
+.radio-button-not-answer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px;
+    gap: 12px;
+    background: $white;
+    border: 1px solid rgba(34, 34, 34, 0.24);
+    border-radius: 8px;
+}
+.taking-email-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 30px;
+    gap: 10px;
+    background: #FCF4FF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+}
+.email-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.left {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.94);
+
+}
+.emails{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px;
+    gap: 12px;
+    background: $white;
+    border: 1px solid rgba(34, 34, 34, 0.24);
+    border-radius: 8px;
+}
+@media (max-height: 480px){
+    .buy-token {
+        height: calc(100vh - 90px);
+    }
+}
+@media (max-width: 678px){
+    .create-token-bg {
+        display: none;
+    }
+    .create-token-form{
+        width: 100%;
+    }
+}
+@media (max-width: 560px) {
+    .profile {
+        //position: absolute;
+        width: 100%;
+        height: 485px;
+        left: 0;
+        //top: calc(50% - 485px/2);
+        background: $white-middle;
+        box-shadow: 0 4px 16px rgba(0, 56, 43, 0.1);
+        border-radius: 16px;
+        overflow: auto;
+    }
+    .experience {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+@media (max-height: 768px){
+    .profile {
+        height: 485px;
+        top: calc(50% - 485px/3);
+    }
+}
+@media (max-height: 680px){
+    .profile {
+        height: 385px;
+        top: calc(50% - 385px/3);
+    }
+}
+@media (max-height: 555px){
+    .profile {
+        height: 285px;
+        top: calc(50% - 285px/3);
+    }
+}
+@media (max-height: 462px){
+    .profile {
+        height: 200px;
+        top: calc(50% - 100px/3);
+    }
+}
+@media (max-height: 768px){
+    .poll {
+        height: 55%;
+
+    }
+}
+@media (max-height: 665px){
+    .poll {
+        height: 400px;
+    }
+    .header-text {
+        font-size: 21px;
+        line-height: 22px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .button-500 span {
+        font-size: 14px;
+        line-height: 16px;
+        color: #FFFFFF;
+    }
+    .poll-button-bold {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .poll-button {
+        font-size: 14px;
+        line-height: 14px;
+    }
+}
+@media (max-height: 520px){
+    .poll {
+        height: 300px;
+
+    }
+}
+@media (max-height: 410px){
+    .poll {
+        height: 200px;
+
+    }
+}
+@media (max-width: 420px){
+    .button-500 span {
+        font-size: 14px;
+        line-height: 16px;
+        color: #FFFFFF;
+    }
+    .poll-button-bold {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .poll-button {
+        font-size: 14px;
+        line-height: 14px;
+    }
+}
+
