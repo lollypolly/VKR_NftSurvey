@@ -32,10 +32,14 @@ function Repeat() {
     ).then((res) => setQresult(res));
   }, []);
 
+  console.log("rezult", result);
+  console.log("questions", qResult);
+
   let allData: any = [];
   for (let i = 0; i < qResult.length; i++) {
     allData.push({ question: qResult[i][0], answer: [qResult[i].options[i]] });
   }
+  console.log("ALLDATAAA-Resultat", allData);
   const handleShare = () => {
     // Define the URL you want to copy
     var url = window.location.href; // Replace with your desired URL
@@ -66,6 +70,7 @@ function Repeat() {
   };
   let tyoeOfQuestion = allData.map((el: any) => {
     return <TakingResult text={el.question} answersVatiant={el.answer} />;
+
   });
   return (
     <div className="main1">

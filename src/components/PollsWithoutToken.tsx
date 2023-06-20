@@ -21,6 +21,7 @@ function PollsWithoutToken() {
 
     if (account !== 0 && err !== 4001) {
       let tokenId = await getTokenId(account);
+      console.log(tokenId);
 
       if (tokenId !== 0) {
         navigate("/profile");

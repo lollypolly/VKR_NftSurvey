@@ -15,12 +15,9 @@ function PollsWithTokenContainer() {
   }, []);
 
   const createPoll = async () => {
-    navigate("/createpoll");
+    navigate('/createpoll')
   };
 
-  const onGetQuestions = (index: any) => {
-    navigate("/answers");
-  };
   return (
     <>
       <div className="poll-with-token-container">

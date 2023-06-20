@@ -11,7 +11,8 @@ function AuthLayout() {
   const store: any = useSelector((state: any) => state);
   let err;
   let account: any = walletConnection()
-    .then((account) => {})
+    .then((account) => {
+    })
     .catch((error) => {
       err = error;
       console.error("Error:", error);
@@ -28,6 +29,8 @@ function AuthLayout() {
     }
     localStorage.setItem("tokenID", result);
   });
+
+
 
   return (
     <div>

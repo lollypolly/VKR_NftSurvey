@@ -31,6 +31,9 @@ function Repeat() {
     ).then((res) => setQresult(res));
   }, []);
 
+  console.log("rezult", result);
+  console.log("questions", qResult);
+
   let allData: any = [];
   if (qResult && result && qResult.length === result.length) {
     for (let i = 0; i < qResult.length; i++) {
@@ -40,6 +43,7 @@ function Repeat() {
       });
     }
   }
+  console.log("ALLDATAAA-Resultat", allData);
   const handleShare = () => {
     // Define the URL you want to copy
     var url = window.location.href; // Replace with your desired URL
@@ -66,6 +70,7 @@ function Repeat() {
   const handleCompleteTakingSurways = () => {};
   const handleExportedValuePollText = (questionValue: any) => {
     setValueQuestionText(questionValue);
+    // setValueAnswerOneVariant(answerValue)
   };
   let tyoeOfQuestion = allData.map((el: any) => {
     return <TakingResult text={el.question} answersVatiant={el.answer} />;
@@ -86,10 +91,10 @@ function Repeat() {
         </div>
         {/*<div className="taking-survey-header-left-side" style={{marginTop:"20px"}}>Вы уже прошли данный опрос</div>*/}
         {/*<div className="taking-email-container" style={{ marginTop: "20px" }}>*/}
-        {/*<div className="email-header">*/}
-        {/*    <div className="left">Участники</div>*/}
-        {/*    <div className="left">7 участников</div>*/}
-        {/*</div>*/}
+          {/*<div className="email-header">*/}
+          {/*    <div className="left">Участники</div>*/}
+          {/*    <div className="left">7 участников</div>*/}
+          {/*</div>*/}
         {/*  <div className="left">Почты</div>*/}
         {/*  <div className="emails">email@mail.ru</div>*/}
         {/*</div>*/}

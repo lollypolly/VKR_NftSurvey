@@ -1,23 +1,15 @@
 import React, { useEffect, useState } from "react";
 import ButtonCreatePoll from "../buttons/ButtonCreatePoll";
-import TakingSurveyTextVariant from "./TakingSurveyTextVariant";
 import Button500 from "../buttons/Button500";
 import ButtonBack from "../buttons/ButtonBack";
 import { useNavigate } from "react-router";
 import Header from "../Header";
 import { useDispatch, useSelector } from "react-redux";
-import Poll from "../Poll";
-import PollsTextType from "../PollsTextType";
-import PollsOneVariantType from "../PollsOneVariantType";
-import PollsManyVariantType from "../PollsManyVariantType";
 import TakingSurveyOneVariant from "./TakingSurvayOneVariant";
-import TakingSurveyManyVariant from "./TakingSurveyManyVariant";
-import { userPolls } from "../../store/actions/polls";
 import { userAnswers } from "../../store/actions/answers";
 import {
   answerQuestions,
   getQuestion,
-  getUsersAnswers,
 } from "../../scripts/web3";
 
 function Index() {
@@ -38,6 +30,16 @@ function Index() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const store: any = useSelector((state: any) => state);
+  // const data = store?.ElementData?.element[0]?.Opros[0]
+  console.log(
+    "store?.ElementData?.element[0]?.id",
+    store?.ElementData?.element[0]?.id
+  );
+  console.log(
+    "store?.ElementData?.element[0]?.id",
+    store?.ElementData?.element[0]?.questionsAmount
+  );
+  console.log("store in INDEX", store);
 
   useEffect(() => {
     getQuestion(
@@ -46,11 +48,9 @@ function Index() {
     ).then((res) => setAllData(res));
   }, []);
 
+  console.log("AllDataaaaaaaaaa", allData);
   const handleShare = () => {
-    // Define the URL you want to copy
     var url = window.location.href; // Replace with your desired URL
-
-    // Write the URL to the clipboard
     navigator.clipboard
       .writeText(url)
       .then(function () {
@@ -68,6 +68,8 @@ function Index() {
   };
   const handleExportedValuePollText = (answer: any) => {
     setValueAnswerText(answer);
+    console.log("setValueQuestionText(questionValue)", answer);
+    // setValueAnswerOneVariant(answerValue)
   };
   const handleExportedValueOneVariant = (questionValue: any, answer: any) => {
     setValueQuestionOneVariant(questionValue);
@@ -77,16 +79,22 @@ function Index() {
       valueQuestionOneVariant,
       valueAnswerOneVariant
     );
+    // setValueAnswerOneVariant(answerValue)
   };
   const handleExportedValueManyVariant = (questionValue: any, answer: any) => {
     setValueQuestionManyVariant(questionValue);
     setValueAnswerManyVariant(answer);
+    console.log(
+      "setValueQuestionText(questionValue)",
+      valueQuestionOneVariant,
+      valueAnswerOneVariant
+    );
+    // setValueAnswerOneVariant(answerValue)
   };
 
   const handleCompleteTakingSurways = async () => {
+
     dispatch(userAnswers.setAnswers([storeData]));
-    console.log(typeof store.ElementData.element[0].id);
-    console.log(store.Answers.answers);
 
     await answerQuestions(
       Number(store.ElementData.element[0].id),
@@ -94,7 +102,6 @@ function Index() {
       [""],
       [1, 1]
     );
-
     navigate("/resultemail");
   };
 
@@ -103,6 +110,7 @@ function Index() {
       <TakingSurveyOneVariant text={el.question} answersVatiant={el?.options} />
     );
   });
+  console.log("tyoeOfQuestion-tyoeOfQuestion-tyoeOfQuestion", tyoeOfQuestion);
   return (
     <div className="main1">
       <Header />

@@ -3,10 +3,8 @@ import Header from "./Header";
 import Button500 from "./buttons/Button500";
 import { Input } from "antd";
 import { useNavigate } from "react-router";
-import { userActions } from "../store/actions/contacts";
 import { useDispatch, useSelector } from "react-redux";
 import { Variant } from "../store/actions/pollVariant";
-import { addEmailsToPrivatePoll, createPoll, getPolls } from "../scripts/web3";
 
 function CreatePoll() {
   const [active, setActive] = useState(false);

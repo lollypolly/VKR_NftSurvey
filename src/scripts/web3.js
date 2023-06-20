@@ -593,6 +593,7 @@ export async function createPoll(
     const transaction = await contract.methods
       .createPoll(_title, _endTime, _usersLimit, _privatePoll, _questionsAmount)
       .send({ from: account, gas: gasLimit });
+    console.log("cretated");
   } catch (error) {
     console.error("Error creating NFT:", error);
   }
@@ -639,7 +640,7 @@ export async function getCreatedPolls(_tokenID) {
 
 export async function getUserInfo() {
   let tokenId = Number(await getTokenId());
-
+  console.log(tokenId);
   try {
     const web3 = new Web3(window.ethereum);
     const contract = new web3.eth.Contract(
@@ -651,7 +652,7 @@ export async function getUserInfo() {
     });
     const account = accounts[0];
     let userInfo = await contract.methods.userInfo(tokenId).call();
-
+    console.log(userInfo);
     return userInfo;
   } catch (error) {
     console.error("Error creating NFT:", error);
@@ -673,11 +674,12 @@ export async function getPolls() {
       // Define and implement getTokenId function
       let tokenId = await getTokenId(account);
       let pollsId = await contract.methods.getCreatedPolls(tokenId).call();
+
       let polls = [];
       for (let i = 0; i < pollsId.length; i++) {
         polls[i] = await contract.methods.polls(pollsId[i]).call();
       }
-
+      // console.log(polls);
       return polls;
     } catch (error) {
       console.error("Error retrieving polls:", error);
@@ -746,8 +748,10 @@ export async function changeUserData(
       )
       .send({ from: account, gas: 350000 })
       .on("receipt", (receipt) => {
+        console.log("Receipt:", receipt);
         // Transaction successfully mined
         txStatus = receipt.status;
+        console.log("Transaction status:", receipt.status); // 0 means failure, 1 means success
       })
       .on("error", (error) => {
         console.error("Error:", error);
@@ -821,6 +825,7 @@ export async function fillQuestions(
         _qType
       )
       .send({ from: account, gas: gasLimit });
+    console.log("created");
   } catch (error) {
     console.error("Error creating fillquestion:", error);
   }
@@ -869,9 +874,11 @@ export async function getUsersSurvey() {
     let createdPolls = await contract.methods.getCreatedPolls(tokenId).call();
     // let polls = await contract.methods.polls().call();
 
+    console.log("leng", createdPolls.length);
     let pollsData = [];
     for (let i = 0; i < createdPolls.length; i++) {
       pollsData[i] = createdPolls[i];
+      console.log("sss", pollsData[i]);
     }
     let pollsInfo = [];
     for (let i = 0; i < pollsData.length; i++) {
@@ -903,6 +910,40 @@ export async function addEmailsToPrivatePoll(_id, _email) {
   }
 }
 
+// export async function getUsersAnswers(_tokenId, _id, _qNumber) {
+//   try {
+//     const web3 = new Web3(window.ethereum);
+//     const contract = new web3.eth.Contract(
+//       ABI,
+//       "0xa5d65b56BC9735A89E0Eb3a6386c2E1472379a46"
+//     );
+//     const accounts = await window.ethereum.request({
+//       method: "eth_requestAccounts",
+//     });
+//     const account = accounts[0];
+
+//     let tokenId = await getTokenId(account);
+//     let polls = await contract.methods.polls(16).call();
+//     let createdPolls = await contract.methods.getCreatedPolls(tokenId).call();
+//     console.log("leng", createdPolls.length);
+
+//     let pollsData = [];
+//     for (let i = 0; i < createdPolls.length; i++) {
+//       pollsData[i] = createdPolls[i];
+//       console.log("sss", pollsData[i]);
+//     }
+//     for (let i = 0; i < polls.questionsAmount; i++) {
+//       var unswersData = await contract.methods
+//         .getUserAnswers(tokenId, pollsData, i)
+//         .call();
+//     }
+
+//     return unswersData;
+//   } catch (error) {
+//     console.error("Error creating NFT:", error);
+//   }
+// }
+
 export async function getQuestion(_pollId, _qNumber) {
   try {
     const web3 = new Web3(window.ethereum);
@@ -927,7 +968,7 @@ export async function getAllQuestionqs() {
 
   let pollsData = [];
   let counter = 0;
-
+  console.log(createdPollsArray);
   for (let i = 0; i < createdPollsArray.length; i++) {
     let array = [];
     for (let j = 0; j < 4; j++) {
@@ -936,6 +977,13 @@ export async function getAllQuestionqs() {
     }
     pollsData[i] = array;
   }
+  console.log(pollsData);
+  // for (let i = 0; i < pollsData.length; i++) {
+  //   if (pollsData[i][0] === "") {
+  //     delete pollsData[i];
+  //   }
+  // }
+  // console.log(pollsData);
 }
 
 export async function getUsersAnswers(_tokenId, _id, _qnumber) {

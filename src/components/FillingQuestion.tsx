@@ -44,7 +44,6 @@ function FillingQuestion() {
   const [newArray, setNewArray] = useState<any>([]);
   const [count, setcounter] = useState<any>(0);
   const store: any = useSelector((state: any) => state);
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleClick1 = () => {
@@ -58,8 +57,6 @@ function FillingQuestion() {
     setActive1(false);
     setActive3(false);
     setIsSelected("oneVariant");
-    // setInputList([])
-    // setQuestionList([])
   };
   const handleClick3 = () => {
     setActive3(true);
@@ -91,7 +88,6 @@ function FillingQuestion() {
     setValueQuestionManyVariant(questionValue);
     setValueAnswerManyVariant(answerValue);
   };
-
   const onAddQuestion = () => {
     if (count < store.PollVariant.pollVariant.qtQuestion) {
       let c: any = count + 1;
@@ -126,8 +122,10 @@ function FillingQuestion() {
         )
       );
   };
+
   let type = questiontList.map((el: any) => el.props.text);
-  let count1: any = 0;
+
+  let count1:any = 0
 
   const handleCompleteCreateAnswer = async () => {
     let tyoeOfQuestion = type.map((name: string, index: any) => {
@@ -175,7 +173,6 @@ function FillingQuestion() {
         return valueAnswerText.length;
       }
     });
-
     let typeOfAnswers = typeOfAnswer.flat(Infinity);
 
     dispatch(
@@ -184,38 +181,33 @@ function FillingQuestion() {
         answerList: [typeOfAnswers],
       })
     );
-    if (
-      store.PollsData.polls[0]?.questiontList[0]?.length &&
-      store.PollsData.polls[0]?.answerList[0]?.length
-    ) {
-      await createPoll(
-        store.PollVariant.pollVariant.name,
-        store.PollVariant.pollVariant.limiteHour,
-        store.PollVariant.pollVariant.limiteUser,
-        false,
-        store.PollVariant.pollVariant.qtQuestion
-      );
+if (store.PollsData.polls[0]?.questiontList[0]?.length && store.PollsData.polls[0]?.answerList[0]?.length) {
+  await createPoll(
+      store.PollVariant.pollVariant.name,
+      store.PollVariant.pollVariant.limiteHour,
+      store.PollVariant.pollVariant.limiteUser,
+      false,
+      store.PollVariant.pollVariant.qtQuestion
+  );
 
-      let createdPolls = [];
-      let tokenId = await getTokenId(localStorage.getItem("account"));
-      createdPolls = await getCreatedPolls(tokenId);
-      const lastElement = await createdPolls[createdPolls.length - 1];
-      const lastElementNum = Number(lastElement);
-      let questionList = await store.PollsData.polls[0]?.questiontList[0];
-      let answeList = await store.PollsData.polls[0]?.answerList[0];
+  let createdPolls = [];
+  let tokenId = await getTokenId(localStorage.getItem("account"));
+  createdPolls = await getCreatedPolls(tokenId);
+  const lastElement = await createdPolls[createdPolls.length - 1];
+  const lastElementNum = Number(lastElement);
+  let questionList = await store.PollsData.polls[0]?.questiontList[0];
+  let answeList = await store.PollsData.polls[0]?.answerList[0];
 
-      await fillQuestions(
-        await lastElementNum,
-        await questionList,
-        await answeList,
-        await lengthOfInputs,
-        await qType
-      ).then((res: any) => {
-        if (res === undefined) navigate("/polls");
-      });
-    }
-    count1++;
-    setInnerButton("нажмите, чтобы создать ответы");
+  await fillQuestions(
+      await lastElementNum,
+      await questionList,
+      await answeList,
+      await lengthOfInputs,
+      await qType
+  ).then((res:any)=>{if (res === undefined) navigate("/polls")});
+}
+count1 ++
+setInnerButton("нажмите, чтобы создать ответы")
   };
 
   const goBack = () => {
@@ -232,7 +224,11 @@ function FillingQuestion() {
           <div className="question-input-text">Выберете тип вопроса</div>
         </div>
         <div className="filling-question-buttons-group">
-          <button className={!active1 ? "poll-button" : "poll-button-bold"}>
+          <button
+            className={!active1 ? "poll-button" : "poll-button-bold"}
+            onClick={handleClick1}
+
+          >
             Текстовый
           </button>
           <button
@@ -241,7 +237,10 @@ function FillingQuestion() {
           >
             С одним вариантом
           </button>
-          <button className={!active3 ? "poll-button" : "poll-button-bold"}>
+          <button
+            className={!active3 ? "poll-button" : "poll-button-bold"}
+            onClick={handleClick3}
+          >
             С несколькими вариантами
           </button>
         </div>
@@ -258,15 +257,8 @@ function FillingQuestion() {
           вопросов
         </div>
         <div style={{ marginTop: "10px", width: "100%" }}>
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignContent: "center",
-            }}
-          >
-            <Spin />
+          <div style={{width:"100%",display:"flex",justifyContent:"center",alignContent:"center"}}>
+            {count1 === 2 ? <Spin /> : ""}
           </div>
           <Button500
             buttonInner={innerButton}

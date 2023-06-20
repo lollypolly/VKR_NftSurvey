@@ -7,14 +7,12 @@ import ButtonBack from "./buttons/ButtonBack";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { userActions } from "../store/actions/contacts";
-import { userPolls } from "../store/actions/polls";
 import {
   createNFT,
   getTokenId,
   getUserInfo,
   walletConnection,
 } from "../scripts/web3";
-import { userInfo } from "os";
 
 const MyFormItemContext = React.createContext<(string | number)[]>([]);
 
@@ -57,6 +55,7 @@ function FormCreateToken() {
   const store: any = useSelector((state: any) => state);
   const firstName: any = useSelector((state: any) => state.UserData.firstName);
   const email: any = useSelector((state: any) => state.UserData.email);
+  console.log("H", firstName);
 
   const onFinish = async (value: any) => {
     dispatch(userActions.setBday(value.userData.birthday));
@@ -65,6 +64,9 @@ function FormCreateToken() {
     dispatch(userActions.setLastName(value.userData.lastName));
     dispatch(userActions.setTel(value.userData.tel));
     dispatch(userActions.setGender(value.userData.gender));
+    console.log("Form Create Token dispach data", store);
+
+    console.log(store.UserData.email);
 
     await createNFT(
       value.userData.firstName,
@@ -74,7 +76,6 @@ function FormCreateToken() {
       value.userData.email,
       value.userData.gender
     );
-
     navigate("/profile");
   };
   const onUpdate = () => {};
